@@ -1,4 +1,4 @@
-class Link
+class Link < ActiveRecord::Base
 belongs_to :search
 
 

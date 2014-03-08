@@ -5,13 +5,14 @@ require_relative 'search'
 require_relative 'link'
 require_relative 'viewer'
 
-class Browser
+class Controller
+  class << self
   def run!
     Viewer.welcome
-    list_options
+    prompt_options
  end
 
- def list_options
+ def prompt_options
     Viewer.prompt_user_option
     get_user_input
     do_user_option
@@ -23,7 +24,7 @@ class Browser
             quit_program
         else
             execute_url
-            list_options
+            prompt_options
     end
  end
 
@@ -32,7 +33,7 @@ class Browser
  end
 
   def execute_url
-    @current_page = Search.new(@input)
+    @current_page = Search.create(keyword: @input)
     Viewer.getting_links(@input)
     fetch_links
   end
@@ -40,7 +41,7 @@ class Browser
 
   def fetch_links
     @current_page.fetch!
-    print_title_links
+     print_title_links
   end
 
   def print_title_links
@@ -52,8 +53,7 @@ class Browser
   end
 
 end
-
-Browser.new.run!
+end
 
 # Run the browser
     # Display a prompt for a user

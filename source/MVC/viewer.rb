@@ -1,15 +1,13 @@
 class Viewer
   class << self
     def welcome
-    puts "  ____  _     _ _   _            ____                   _      "
-    puts " / ___|| |__ (_) |_| |_ _   _   / ___| ___   ___   __ _| | ___ "
-    puts " \\___ \\| '_ \\| | __| __| | | | | |  _ / _ \\ / _ \\ / _` | |/ _ \\"
-    puts "  ___) | | | | | |_| |_| |_| | | |_| | (_) | (_) | (_| | |  __/"
-    puts " |____/|_| |_|_|\\__|\\__|\\__, |  \\____|\\___/ \\___/ \\__, |_|\\___|"
-    puts "                        |___/                     |___/        "
-
-
-      print "Welcome to Shitty Google!"
+      puts " _     _       _                     _    "
+      puts "| |   (_)     | |                   | |   "
+      puts "| |    _ _ __ | | ____   ____ _ _ __| | __"
+      puts "| |   | | '_ \\| |/ /\\ \\ / / _` | '__| |/ /"
+      puts "| |___| | | | |   <  \\ V / (_| | |  |   < "
+      puts "\\_____/_|_| |_|_|\\_\\  \\_/ \\__,_|_|  |_|\\_\\"
+      print "Welcome to Linkvark!"
       puts ""
     end
 
@@ -20,7 +18,7 @@ class Viewer
     end
 
     def quit
-      puts "Thanks for trying Shitty Google"
+      puts "Thanks for trying Linkvark"
     end
 
     def getting_links(keyword)
@@ -32,8 +30,8 @@ class Viewer
     def introduce_links(links_array)
       puts "Here are the search links!"
       links_array.each do |link|
-        puts "#{links_array.index(link) + 1}. #{link.to_s[7..-1]}"
-        `open #{link.to_s[7..-1]}`
+        puts "#{links_array.index(link) + 1}. #{link.to_s}"
+        `open #{link.to_s}`
       end
 
     end
